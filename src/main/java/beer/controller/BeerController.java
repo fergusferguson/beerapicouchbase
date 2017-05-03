@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -15,13 +16,17 @@ public class BeerController {
     @Autowired
     private BeerService beerService;
 
-    @RequestMapping(value = "beers/{id}", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(
+        value = "beers/{id}",
+        method = RequestMethod.GET,
+        produces = "application/json")
     public Beer getBeer(@PathVariable String id){
+
         return beerService.getBeer(id);
     }
 
 //    @RequestMapping(value = "beers/", method = RequestMethod.GET, produces = "application/json")
-//    public List<Beer> getBeersByBrewery(@PathVariable String breweryId){
-//        return beerService.getBeersByBrewery(breweryId);
+//    public List<Beer> getBeersByBrewery(HttpServletRequest request){
+//        return beerService.getBeersByBrewery(request);
 //    }
 }
