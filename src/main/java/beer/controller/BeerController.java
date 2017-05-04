@@ -25,8 +25,12 @@ public class BeerController {
         return beerService.getBeer(id);
     }
 
-//    @RequestMapping(value = "beers/", method = RequestMethod.GET, produces = "application/json")
-//    public List<Beer> getBeersByBrewery(HttpServletRequest request){
-//        return beerService.getBeersByBrewery(request);
-//    }
+    @RequestMapping(
+        value = "beers/style/{style}",
+        method = RequestMethod.GET,
+        produces = "application/json")
+    public List<Beer> getBeersByStyle(@PathVariable String style){
+        return beerService.getBeersByStyle(style);
+    }
+    
 }
