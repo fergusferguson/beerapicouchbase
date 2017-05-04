@@ -8,5 +8,5 @@ import java.util.List;
 public interface BeerService {
     Beer getBeer(String id);
 
-//    List<Beer> getBeersByBrewery(HttpServletRequest request);
+    List<Beer> getBeersByStyle(String style);
 }
